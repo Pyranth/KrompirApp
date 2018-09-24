@@ -1,0 +1,88 @@
+﻿@model KrompirApp.PROIZVODJAC
+
+@{
+    ViewBag.Title = "Brisanje";
+}
+
+<h2>Brisanje proizvođača</h2>
+
+<h3>Jeste li sigurni da želite da obrišete proizvođača?</h3>
+<div>
+    <h4>PROIZVODJAC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PREZIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PREZIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATUMRODJENJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATUMRODJENJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MJESTOSTANOVANJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MJESTOSTANOVANJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADRESA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADRESA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APIF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APIF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFON)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obriši" class="btn btn-default" /> |
+            @Html.ActionLink("Nazad", "Index")
+        </div>
+    }
+</div>

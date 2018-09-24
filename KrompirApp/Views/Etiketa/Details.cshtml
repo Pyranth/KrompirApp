@@ -1,0 +1,66 @@
+﻿@model KrompirApp.ETIKETA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ETIKETA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SIFRAPAKOVANJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIFRAPAKOVANJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REDNIBROJZAHTJEVAPROIZVODJACA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REDNIBROJZAHTJEVAPROIZVODJACA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZASTITA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZASTITA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DELETED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DELETED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROIZVODJAC.IME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROIZVODJAC.IME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SIFRA_SORTE.NAZIV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIFRA_SORTE.NAZIV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ETIKETAID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

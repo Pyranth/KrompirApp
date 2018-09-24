@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="16acacd64ac543f69cd64ab51df0c43d" Name="Diagram1">
+        <EntityTypeShape EntityType="KrompirDatabaseModel.DNEVNIK_PARCELE" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrompirDatabaseModel.ETIKETA" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrompirDatabaseModel.KOLICINA_PROIZVEDENOG_KROMPIRA" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrompirDatabaseModel.PRINOS_PARCELE" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrompirDatabaseModel.PROIZVODJAC" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrompirDatabaseModel.SIFRA_SORTE" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KrompirDatabaseModel.UNOS_U_DNEVNIK" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="KrompirDatabaseModel.FK_ETIKETA_PROIZVODJAC" ManuallyRouted="false" />
+        <AssociationConnector Association="KrompirDatabaseModel.FK_ETIKETA_SIFRA_SORTE" ManuallyRouted="false" />
+        <AssociationConnector Association="KrompirDatabaseModel.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC" ManuallyRouted="false" />
+        <AssociationConnector Association="KrompirDatabaseModel.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="KrompirDatabaseModel.PARCELA" Width="1.5" PointX="6" PointY="0.875" />
+        <AssociationConnector Association="KrompirDatabaseModel.FK_DNEVNIK_PARCELE_PARCELA" />
+        <AssociationConnector Association="KrompirDatabaseModel.FK_PARCELA_PROIZVODJAC" />
+        <AssociationConnector Association="KrompirDatabaseModel.FK_PARCELA_SIFRA_SORTE" />
+        <AssociationConnector Association="KrompirDatabaseModel.FK_PRINOS_PARCELE_PARCELA" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

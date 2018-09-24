@@ -1,0 +1,98 @@
+﻿@model KrompirApp.DNEVNIK_PARCELE
+
+@{
+    ViewBag.Title = "Detalji";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>DNEVNIK_PARCELE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAZIVRADNEOPERACIJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAZIVRADNEOPERACIJE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATUM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATUM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KORISCENIPRIKLJUCAK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KORISCENIPRIKLJUCAK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NAZIVKORISCENOGPOTROSNOGMATERIJALA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAZIVKORISCENOGPOTROSNOGMATERIJALA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JEDINICAMJERE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JEDINICAMJERE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KOLICINAUTROSENOGPOTROSNOGMATERIJALA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KOLICINAUTROSENOGPOTROSNOGMATERIJALA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UTROSENOVRIJEMERADAMEHANIZACIJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UTROSENOVRIJEMERADAMEHANIZACIJE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UTROSENOVRIJEMERADARADNIKA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UTROSENOVRIJEMERADARADNIKA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PARCELA.MJESTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PARCELA.MJESTO)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmjeni", "Edit", new { id = Model.DNEVNIKID }) |
+    @Html.ActionLink("Nazad", "Index", new { id = Model.PARCELAID })
+</p>

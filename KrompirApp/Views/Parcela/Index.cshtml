@@ -1,0 +1,61 @@
+﻿@model IEnumerable<KrompirApp.PARCELA>
+
+@{
+    ViewBag.Title = "Pregled";
+}
+
+<h2>Pregled parcela</h2>
+<p><b>Proizvodjac</b>: @Html.DisplayFor(model => model.FirstOrDefault().PROIZVODJAC.IME) @Html.DisplayFor(model => model.FirstOrDefault().PROIZVODJAC.PREZIME)</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MJESTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KATASTARSKAOPSTINA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KCBROJ)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MJESTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KATASTARSKAOPSTINA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KCBROJ)
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create", "Dnevnik", new { id = item.PARCELAID })'">Unos u dnevnik</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create", "Prinos", new { id = item.PARCELAID })'">Prijava prinosa</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Dnevnik", new { id = item.PARCELAID })'">Pregled dnevnika</button>
+        </td>
+        <td>
+            @Html.ActionLink("Izmjeni", "Edit", new { id=item.PARCELAID }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.PARCELAID }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.PARCELAID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<hr/>
+
+<div>
+    @Html.ActionLink("Nazad", "Index", "Proizvodjac", null, null)
+</div>

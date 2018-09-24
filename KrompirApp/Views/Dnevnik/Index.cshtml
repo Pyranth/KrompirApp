@@ -1,0 +1,93 @@
+﻿@model IEnumerable<KrompirApp.DNEVNIK_PARCELE>
+
+@{
+    ViewBag.Title = "Pregled";
+}
+
+<h2>Pregled</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NAZIVRADNEOPERACIJE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATUM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KORISCENIPRIKLJUCAK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NAZIVKORISCENOGPOTROSNOGMATERIJALA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JEDINICAMJERE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KOLICINAUTROSENOGPOTROSNOGMATERIJALA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UTROSENOVRIJEMERADAMEHANIZACIJE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UTROSENOVRIJEMERADARADNIKA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PARCELA.MJESTO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAZIVRADNEOPERACIJE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATUM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KORISCENIPRIKLJUCAK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAZIVKORISCENOGPOTROSNOGMATERIJALA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JEDINICAMJERE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KOLICINAUTROSENOGPOTROSNOGMATERIJALA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UTROSENOVRIJEMERADAMEHANIZACIJE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UTROSENOVRIJEMERADARADNIKA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PARCELA.MJESTO)
+        </td>
+        <td>
+            @Html.ActionLink("Izmjeni", "Edit", new { id=item.DNEVNIKID }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.DNEVNIKID }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.DNEVNIKID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@if (Model.FirstOrDefault() != null)
+{
+    @Html.ActionLink("Nazad", "Index", "Parcela", new { id = Model.FirstOrDefault().PARCELA.PROIZVODJACID }, null);
+}
+else
+{
+    @Html.ActionLink("Nazad", "Index", "Proizvodjac");
+}

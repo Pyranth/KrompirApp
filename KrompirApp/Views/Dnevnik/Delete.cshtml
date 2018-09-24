@@ -1,0 +1,104 @@
+﻿@model KrompirApp.DNEVNIK_PARCELE
+
+@{
+    ViewBag.Title = "Brisanje";
+}
+
+<h2>Brisanje</h2>
+
+<h3>Da li ste sigurni da želite da obrišete parcelu?</h3>
+<div>
+    <h4>DNEVNIK_PARCELE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAZIVRADNEOPERACIJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAZIVRADNEOPERACIJE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATUM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATUM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KORISCENIPRIKLJUCAK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KORISCENIPRIKLJUCAK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NAZIVKORISCENOGPOTROSNOGMATERIJALA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAZIVKORISCENOGPOTROSNOGMATERIJALA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JEDINICAMJERE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JEDINICAMJERE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KOLICINAUTROSENOGPOTROSNOGMATERIJALA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KOLICINAUTROSENOGPOTROSNOGMATERIJALA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UTROSENOVRIJEMERADAMEHANIZACIJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UTROSENOVRIJEMERADAMEHANIZACIJE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UTROSENOVRIJEMERADARADNIKA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UTROSENOVRIJEMERADARADNIKA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PARCELA.MJESTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PARCELA.MJESTO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obriši" class="btn btn-default" /> |
+            @Html.ActionLink("Nazad", "Index", new { id = Model.PARCELAID })
+        </div>
+    }
+</div>

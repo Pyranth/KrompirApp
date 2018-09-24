@@ -1,0 +1,45 @@
+﻿@model IEnumerable<KrompirApp.PRINOS_PARCELE>
+
+@{
+    ViewBag.Title = "Pregled";
+}
+
+<h2>Pregled</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PROIZVEDENAKOLICINA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PARCELA.MJESTO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROIZVEDENAKOLICINA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PARCELA.MJESTO)
+        </td>
+        <td>
+            @Html.ActionLink("Izmjeni", "Edit", new { id=item.PRINOSID }) |
+            @Html.ActionLink("Detalji", "Details", new { id=item.PRINOSID }) |
+            @Html.ActionLink("Obriši", "Delete", new { id=item.PRINOSID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@if (Model.FirstOrDefault() != null)
+{
+    @Html.ActionLink("Nazad", "Index", "Parcela", new { id = Model.FirstOrDefault().PARCELA.PROIZVODJACID }, null);
+}
+else
+{
+    @Html.ActionLink("Nazad", "Index", "Proizvodjac");
+}

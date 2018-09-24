@@ -1,0 +1,98 @@
+﻿@model KrompirApp.PARCELA
+
+@{
+    ViewBag.Title = "Detalji";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>PARCELA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MJESTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MJESTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KATASTARSKAOPSTINA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KATASTARSKAOPSTINA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KCBROJ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KCBROJ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.POVRSINA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POVRSINA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PREDUSJEV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PREDUSJEV)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.POSADJENAKATEGORIJASADNOGMATERIJALA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSADJENAKATEGORIJASADNOGMATERIJALA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATUMSADNJE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATUMSADNJE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.POSADJENAKOLICINA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POSADJENAKOLICINA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROIZVODJAC.IME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROIZVODJAC.IME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SIFRA_SORTE.NAZIV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIFRA_SORTE.NAZIV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmjeni", "Edit", new { id = Model.PARCELAID }) |
+    @Html.ActionLink("Nazad", "Index", new { id = Model.PROIZVODJACID })
+</p>

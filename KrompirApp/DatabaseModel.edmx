@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KrompirDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DNEVNIK_PARCELE">
+          <Key>
+            <PropertyRef Name="DNEVNIKID" />
+          </Key>
+          <Property Name="DNEVNIKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAZIVRADNEOPERACIJE" Type="varchar" MaxLength="50" />
+          <Property Name="DATUM" Type="date" />
+          <Property Name="KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE" Type="varchar" MaxLength="50" />
+          <Property Name="KORISCENIPRIKLJUCAK" Type="varchar" MaxLength="50" />
+          <Property Name="NAZIVKORISCENOGPOTROSNOGMATERIJALA" Type="varchar" MaxLength="50" />
+          <Property Name="JEDINICAMJERE" Type="varchar" MaxLength="50" />
+          <Property Name="KOLICINAUTROSENOGPOTROSNOGMATERIJALA" Type="int" />
+          <Property Name="UTROSENOVRIJEMERADAMEHANIZACIJE" Type="int" />
+          <Property Name="UTROSENOVRIJEMERADARADNIKA" Type="int" />
+          <Property Name="PARCELAID" Type="int" />
+          <Property Name="DELTED" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ETIKETA">
+          <Key>
+            <PropertyRef Name="ETIKETAID" />
+          </Key>
+          <Property Name="ETIKETAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROIZVODJACID" Type="int" />
+          <Property Name="SORTAID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SIFRAPAKOVANJA" Type="text" />
+          <Property Name="REDNIBROJZAHTJEVAPROIZVODJACA" Type="int" />
+          <Property Name="ZASTITA" Type="text" />
+          <Property Name="DELETED" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KOLICINA_PROIZVEDENOG_KROMPIRA">
+          <Key>
+            <PropertyRef Name="KOLICINAPROIZVEDENOGKROMPIRAID" />
+          </Key>
+          <Property Name="KOLICINAPROIZVEDENOGKROMPIRAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROIZVODJACID" Type="int" />
+          <Property Name="UKUPNAPROIZVEDENAKOLICINA" Type="int" />
+          <Property Name="SORTAID" Type="nvarchar" MaxLength="50" />
+          <Property Name="DELETED" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PARCELA">
+          <Key>
+            <PropertyRef Name="PARCELAID" />
+          </Key>
+          <Property Name="PARCELAID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROIZVODJACID" Type="int" />
+          <Property Name="MJESTO" Type="text" />
+          <Property Name="KATASTARSKAOPSTINA" Type="text" />
+          <Property Name="KCBROJ" Type="text" />
+          <Property Name="POVRSINA" Type="int" />
+          <Property Name="PREDUSJEV" Type="text" />
+          <Property Name="SORTAID" Type="nvarchar" MaxLength="50" />
+          <Property Name="POSADJENAKATEGORIJASADNOGMATERIJALA" Type="text" />
+          <Property Name="DATUMSADNJE" Type="datetime" />
+          <Property Name="POSADJENAKOLICINA" Type="int" />
+          <Property Name="DELETED" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRINOS_PARCELE">
+          <Key>
+            <PropertyRef Name="PRINOSID" />
+          </Key>
+          <Property Name="PRINOSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROIZVEDENAKOLICINA" Type="int" />
+          <Property Name="PARCELAID" Type="int" />
+          <Property Name="DELETED" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROIZVODJAC">
+          <Key>
+            <PropertyRef Name="PROIZVODJACID" />
+          </Key>
+          <Property Name="PROIZVODJACID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IME" Type="text" />
+          <Property Name="PREZIME" Type="text" />
+          <Property Name="DATUMRODJENJA" Type="datetime" />
+          <Property Name="MJESTOSTANOVANJA" Type="text" />
+          <Property Name="ADRESA" Type="text" />
+          <Property Name="APIF" Type="text" />
+          <Property Name="EMAIL" Type="text" />
+          <Property Name="TELEFON" Type="text" />
+          <Property Name="DELETED" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SIFRA_SORTE">
+          <Key>
+            <PropertyRef Name="SORTAID" />
+          </Key>
+          <Property Name="SORTAID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAZIV" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UNOS_U_DNEVNIK">
+          <Key>
+            <PropertyRef Name="UNOSUDNEVNIKID" />
+          </Key>
+          <Property Name="UNOSUDNEVNIKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NAZIVRADNEOPERACIJE" Type="text" />
+          <Property Name="DATUM" Type="datetime" />
+          <Property Name="KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE" Type="text" />
+          <Property Name="KORISCENIPRIKLJUCAK" Type="text" />
+          <Property Name="NAZIVKORISCENOGPOTROSNOGMATERIJALA" Type="text" />
+          <Property Name="JEDINICAMJERE" Type="text" />
+          <Property Name="KOLICINAUTROSENOGPOTROSNOGMATERIJALA" Type="int" />
+          <Property Name="UTROSENOVRIJEMERADAMEHANIZACIJE" Type="int" />
+          <Property Name="UTROSENOVRIJEMERADARADNIKA" Type="int" />
+          <Property Name="DELETED" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DNEVNIK_PARCELE_PARCELA">
+          <End Role="PARCELA" Type="Self.PARCELA" Multiplicity="0..1" />
+          <End Role="DNEVNIK_PARCELE" Type="Self.DNEVNIK_PARCELE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARCELA">
+              <PropertyRef Name="PARCELAID" />
+            </Principal>
+            <Dependent Role="DNEVNIK_PARCELE">
+              <PropertyRef Name="PARCELAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ETIKETA_PROIZVODJAC">
+          <End Role="PROIZVODJAC" Type="Self.PROIZVODJAC" Multiplicity="0..1" />
+          <End Role="ETIKETA" Type="Self.ETIKETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROIZVODJAC">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Principal>
+            <Dependent Role="ETIKETA">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ETIKETA_SIFRA_SORTE">
+          <End Role="SIFRA_SORTE" Type="Self.SIFRA_SORTE" Multiplicity="0..1" />
+          <End Role="ETIKETA" Type="Self.ETIKETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIFRA_SORTE">
+              <PropertyRef Name="SORTAID" />
+            </Principal>
+            <Dependent Role="ETIKETA">
+              <PropertyRef Name="SORTAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC">
+          <End Role="PROIZVODJAC" Type="Self.PROIZVODJAC" Multiplicity="0..1" />
+          <End Role="KOLICINA_PROIZVEDENOG_KROMPIRA" Type="Self.KOLICINA_PROIZVEDENOG_KROMPIRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROIZVODJAC">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Principal>
+            <Dependent Role="KOLICINA_PROIZVEDENOG_KROMPIRA">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE">
+          <End Role="SIFRA_SORTE" Type="Self.SIFRA_SORTE" Multiplicity="0..1" />
+          <End Role="KOLICINA_PROIZVEDENOG_KROMPIRA" Type="Self.KOLICINA_PROIZVEDENOG_KROMPIRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIFRA_SORTE">
+              <PropertyRef Name="SORTAID" />
+            </Principal>
+            <Dependent Role="KOLICINA_PROIZVEDENOG_KROMPIRA">
+              <PropertyRef Name="SORTAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARCELA_PROIZVODJAC">
+          <End Role="PROIZVODJAC" Type="Self.PROIZVODJAC" Multiplicity="0..1" />
+          <End Role="PARCELA" Type="Self.PARCELA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROIZVODJAC">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Principal>
+            <Dependent Role="PARCELA">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARCELA_SIFRA_SORTE">
+          <End Role="SIFRA_SORTE" Type="Self.SIFRA_SORTE" Multiplicity="0..1" />
+          <End Role="PARCELA" Type="Self.PARCELA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIFRA_SORTE">
+              <PropertyRef Name="SORTAID" />
+            </Principal>
+            <Dependent Role="PARCELA">
+              <PropertyRef Name="SORTAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRINOS_PARCELE_PARCELA">
+          <End Role="PARCELA" Type="Self.PARCELA" Multiplicity="0..1" />
+          <End Role="PRINOS_PARCELE" Type="Self.PRINOS_PARCELE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARCELA">
+              <PropertyRef Name="PARCELAID" />
+            </Principal>
+            <Dependent Role="PRINOS_PARCELE">
+              <PropertyRef Name="PARCELAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KrompirDatabaseModelStoreContainer">
+          <EntitySet Name="DNEVNIK_PARCELE" EntityType="Self.DNEVNIK_PARCELE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ETIKETA" EntityType="Self.ETIKETA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KOLICINA_PROIZVEDENOG_KROMPIRA" EntityType="Self.KOLICINA_PROIZVEDENOG_KROMPIRA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PARCELA" EntityType="Self.PARCELA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRINOS_PARCELE" EntityType="Self.PRINOS_PARCELE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROIZVODJAC" EntityType="Self.PROIZVODJAC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SIFRA_SORTE" EntityType="Self.SIFRA_SORTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UNOS_U_DNEVNIK" EntityType="Self.UNOS_U_DNEVNIK" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DNEVNIK_PARCELE_PARCELA" Association="Self.FK_DNEVNIK_PARCELE_PARCELA">
+            <End Role="PARCELA" EntitySet="PARCELA" />
+            <End Role="DNEVNIK_PARCELE" EntitySet="DNEVNIK_PARCELE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ETIKETA_PROIZVODJAC" Association="Self.FK_ETIKETA_PROIZVODJAC">
+            <End Role="PROIZVODJAC" EntitySet="PROIZVODJAC" />
+            <End Role="ETIKETA" EntitySet="ETIKETA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ETIKETA_SIFRA_SORTE" Association="Self.FK_ETIKETA_SIFRA_SORTE">
+            <End Role="SIFRA_SORTE" EntitySet="SIFRA_SORTE" />
+            <End Role="ETIKETA" EntitySet="ETIKETA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC" Association="Self.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC">
+            <End Role="PROIZVODJAC" EntitySet="PROIZVODJAC" />
+            <End Role="KOLICINA_PROIZVEDENOG_KROMPIRA" EntitySet="KOLICINA_PROIZVEDENOG_KROMPIRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE" Association="Self.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE">
+            <End Role="SIFRA_SORTE" EntitySet="SIFRA_SORTE" />
+            <End Role="KOLICINA_PROIZVEDENOG_KROMPIRA" EntitySet="KOLICINA_PROIZVEDENOG_KROMPIRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARCELA_PROIZVODJAC" Association="Self.FK_PARCELA_PROIZVODJAC">
+            <End Role="PROIZVODJAC" EntitySet="PROIZVODJAC" />
+            <End Role="PARCELA" EntitySet="PARCELA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARCELA_SIFRA_SORTE" Association="Self.FK_PARCELA_SIFRA_SORTE">
+            <End Role="SIFRA_SORTE" EntitySet="SIFRA_SORTE" />
+            <End Role="PARCELA" EntitySet="PARCELA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRINOS_PARCELE_PARCELA" Association="Self.FK_PRINOS_PARCELE_PARCELA">
+            <End Role="PARCELA" EntitySet="PARCELA" />
+            <End Role="PRINOS_PARCELE" EntitySet="PRINOS_PARCELE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KrompirDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DNEVNIK_PARCELE">
+          <Key>
+            <PropertyRef Name="DNEVNIKID" />
+          </Key>
+          <Property Name="DNEVNIKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAZIVRADNEOPERACIJE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATUM" Type="DateTime" Precision="0" />
+          <Property Name="KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KORISCENIPRIKLJUCAK" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NAZIVKORISCENOGPOTROSNOGMATERIJALA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JEDINICAMJERE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KOLICINAUTROSENOGPOTROSNOGMATERIJALA" Type="Int32" />
+          <Property Name="UTROSENOVRIJEMERADAMEHANIZACIJE" Type="Int32" />
+          <Property Name="UTROSENOVRIJEMERADARADNIKA" Type="Int32" />
+          <Property Name="PARCELAID" Type="Int32" />
+          <NavigationProperty Name="PARCELA" Relationship="KrompirDatabaseModel.FK_DNEVNIK_PARCELE_PARCELA" FromRole="DNEVNIK_PARCELE" ToRole="PARCELA" />
+          <Property Name="DELTED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ETIKETA">
+          <Key>
+            <PropertyRef Name="ETIKETAID" />
+          </Key>
+          <Property Name="ETIKETAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROIZVODJACID" Type="Int32" />
+          <Property Name="SORTAID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SIFRAPAKOVANJA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="REDNIBROJZAHTJEVAPROIZVODJACA" Type="Int32" />
+          <Property Name="ZASTITA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PROIZVODJAC" Relationship="Self.FK_ETIKETA_PROIZVODJAC" FromRole="ETIKETA" ToRole="PROIZVODJAC" />
+          <NavigationProperty Name="SIFRA_SORTE" Relationship="Self.FK_ETIKETA_SIFRA_SORTE" FromRole="ETIKETA" ToRole="SIFRA_SORTE" />
+          <Property Name="DELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KOLICINA_PROIZVEDENOG_KROMPIRA">
+          <Key>
+            <PropertyRef Name="KOLICINAPROIZVEDENOGKROMPIRAID" />
+          </Key>
+          <Property Name="KOLICINAPROIZVEDENOGKROMPIRAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROIZVODJACID" Type="Int32" />
+          <Property Name="UKUPNAPROIZVEDENAKOLICINA" Type="Int32" />
+          <Property Name="SORTAID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PROIZVODJAC" Relationship="Self.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC" FromRole="KOLICINA_PROIZVEDENOG_KROMPIRA" ToRole="PROIZVODJAC" />
+          <NavigationProperty Name="SIFRA_SORTE" Relationship="Self.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE" FromRole="KOLICINA_PROIZVEDENOG_KROMPIRA" ToRole="SIFRA_SORTE" />
+          <Property Name="DELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRINOS_PARCELE">
+          <Key>
+            <PropertyRef Name="PRINOSID" />
+          </Key>
+          <Property Name="PRINOSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROIZVEDENAKOLICINA" Type="Int32" />
+          <Property Name="PARCELAID" Type="Int32" />
+          <NavigationProperty Name="PARCELA" Relationship="KrompirDatabaseModel.FK_PRINOS_PARCELE_PARCELA" FromRole="PRINOS_PARCELE" ToRole="PARCELA" />
+          <Property Name="DELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROIZVODJAC">
+          <Key>
+            <PropertyRef Name="PROIZVODJACID" />
+          </Key>
+          <Property Name="PROIZVODJACID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PREZIME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DATUMRODJENJA" Type="DateTime" Precision="3" />
+          <Property Name="MJESTOSTANOVANJA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ADRESA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="APIF" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ETIKETA" Relationship="Self.FK_ETIKETA_PROIZVODJAC" FromRole="PROIZVODJAC" ToRole="ETIKETA" />
+          <NavigationProperty Name="KOLICINA_PROIZVEDENOG_KROMPIRA" Relationship="Self.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC" FromRole="PROIZVODJAC" ToRole="KOLICINA_PROIZVEDENOG_KROMPIRA" />
+          <NavigationProperty Name="PARCELA" Relationship="KrompirDatabaseModel.FK_PARCELA_PROIZVODJAC" FromRole="PROIZVODJAC" ToRole="PARCELA" />
+          <Property Name="DELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SIFRA_SORTE">
+          <Key>
+            <PropertyRef Name="SORTAID" />
+          </Key>
+          <Property Name="SORTAID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAZIV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ETIKETA" Relationship="Self.FK_ETIKETA_SIFRA_SORTE" FromRole="SIFRA_SORTE" ToRole="ETIKETA" />
+          <NavigationProperty Name="KOLICINA_PROIZVEDENOG_KROMPIRA" Relationship="Self.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE" FromRole="SIFRA_SORTE" ToRole="KOLICINA_PROIZVEDENOG_KROMPIRA" />
+          <NavigationProperty Name="PARCELA" Relationship="KrompirDatabaseModel.FK_PARCELA_SIFRA_SORTE" FromRole="SIFRA_SORTE" ToRole="PARCELA" />
+        </EntityType>
+        <EntityType Name="UNOS_U_DNEVNIK">
+          <Key>
+            <PropertyRef Name="UNOSUDNEVNIKID" />
+          </Key>
+          <Property Name="UNOSUDNEVNIKID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NAZIVRADNEOPERACIJE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DATUM" Type="DateTime" Precision="3" />
+          <Property Name="KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KORISCENIPRIKLJUCAK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NAZIVKORISCENOGPOTROSNOGMATERIJALA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="JEDINICAMJERE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KOLICINAUTROSENOGPOTROSNOGMATERIJALA" Type="Int32" />
+          <Property Name="UTROSENOVRIJEMERADAMEHANIZACIJE" Type="Int32" />
+          <Property Name="UTROSENOVRIJEMERADARADNIKA" Type="Int32" />
+          <Property Name="DELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ETIKETA_PROIZVODJAC">
+          <End Role="PROIZVODJAC" Type="Self.PROIZVODJAC" Multiplicity="0..1" />
+          <End Role="ETIKETA" Type="Self.ETIKETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROIZVODJAC">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Principal>
+            <Dependent Role="ETIKETA">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ETIKETA_SIFRA_SORTE">
+          <End Role="SIFRA_SORTE" Type="Self.SIFRA_SORTE" Multiplicity="0..1" />
+          <End Role="ETIKETA" Type="Self.ETIKETA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIFRA_SORTE">
+              <PropertyRef Name="SORTAID" />
+            </Principal>
+            <Dependent Role="ETIKETA">
+              <PropertyRef Name="SORTAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC">
+          <End Role="PROIZVODJAC" Type="Self.PROIZVODJAC" Multiplicity="0..1" />
+          <End Role="KOLICINA_PROIZVEDENOG_KROMPIRA" Type="Self.KOLICINA_PROIZVEDENOG_KROMPIRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROIZVODJAC">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Principal>
+            <Dependent Role="KOLICINA_PROIZVEDENOG_KROMPIRA">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE">
+          <End Role="SIFRA_SORTE" Type="Self.SIFRA_SORTE" Multiplicity="0..1" />
+          <End Role="KOLICINA_PROIZVEDENOG_KROMPIRA" Type="Self.KOLICINA_PROIZVEDENOG_KROMPIRA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIFRA_SORTE">
+              <PropertyRef Name="SORTAID" />
+            </Principal>
+            <Dependent Role="KOLICINA_PROIZVEDENOG_KROMPIRA">
+              <PropertyRef Name="SORTAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KrompirDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DNEVNIK_PARCELE" EntityType="Self.DNEVNIK_PARCELE" />
+          <EntitySet Name="ETIKETA" EntityType="Self.ETIKETA" />
+          <EntitySet Name="KOLICINA_PROIZVEDENOG_KROMPIRA" EntityType="Self.KOLICINA_PROIZVEDENOG_KROMPIRA" />
+          <EntitySet Name="PRINOS_PARCELE" EntityType="Self.PRINOS_PARCELE" />
+          <EntitySet Name="PROIZVODJAC" EntityType="Self.PROIZVODJAC" />
+          <EntitySet Name="SIFRA_SORTE" EntityType="Self.SIFRA_SORTE" />
+          <EntitySet Name="UNOS_U_DNEVNIK" EntityType="Self.UNOS_U_DNEVNIK" />
+          <AssociationSet Name="FK_ETIKETA_PROIZVODJAC" Association="Self.FK_ETIKETA_PROIZVODJAC">
+            <End Role="PROIZVODJAC" EntitySet="PROIZVODJAC" />
+            <End Role="ETIKETA" EntitySet="ETIKETA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ETIKETA_SIFRA_SORTE" Association="Self.FK_ETIKETA_SIFRA_SORTE">
+            <End Role="SIFRA_SORTE" EntitySet="SIFRA_SORTE" />
+            <End Role="ETIKETA" EntitySet="ETIKETA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC" Association="Self.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_PROIZVODJAC">
+            <End Role="PROIZVODJAC" EntitySet="PROIZVODJAC" />
+            <End Role="KOLICINA_PROIZVEDENOG_KROMPIRA" EntitySet="KOLICINA_PROIZVEDENOG_KROMPIRA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE" Association="Self.FK_KOLICINA_PROIZVEDENOG_KROMPIRA_SIFRA_SORTE">
+            <End Role="SIFRA_SORTE" EntitySet="SIFRA_SORTE" />
+            <End Role="KOLICINA_PROIZVEDENOG_KROMPIRA" EntitySet="KOLICINA_PROIZVEDENOG_KROMPIRA" />
+          </AssociationSet>
+          <EntitySet Name="PARCELA" EntityType="KrompirDatabaseModel.PARCELA" />
+          <AssociationSet Name="FK_DNEVNIK_PARCELE_PARCELA" Association="KrompirDatabaseModel.FK_DNEVNIK_PARCELE_PARCELA">
+            <End Role="PARCELA" EntitySet="PARCELA" />
+            <End Role="DNEVNIK_PARCELE" EntitySet="DNEVNIK_PARCELE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARCELA_PROIZVODJAC" Association="KrompirDatabaseModel.FK_PARCELA_PROIZVODJAC">
+            <End Role="PROIZVODJAC" EntitySet="PROIZVODJAC" />
+            <End Role="PARCELA" EntitySet="PARCELA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PARCELA_SIFRA_SORTE" Association="KrompirDatabaseModel.FK_PARCELA_SIFRA_SORTE">
+            <End Role="SIFRA_SORTE" EntitySet="SIFRA_SORTE" />
+            <End Role="PARCELA" EntitySet="PARCELA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRINOS_PARCELE_PARCELA" Association="KrompirDatabaseModel.FK_PRINOS_PARCELE_PARCELA">
+            <End Role="PARCELA" EntitySet="PARCELA" />
+            <End Role="PRINOS_PARCELE" EntitySet="PRINOS_PARCELE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="PARCELA">
+          <Key>
+            <PropertyRef Name="PARCELAID" />
+          </Key>
+          <Property Name="PARCELAID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROIZVODJACID" Type="Int32" />
+          <Property Name="MJESTO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KATASTARSKAOPSTINA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KCBROJ" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="POVRSINA" Type="Int32" />
+          <Property Name="PREDUSJEV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SORTAID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="POSADJENAKATEGORIJASADNOGMATERIJALA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DATUMSADNJE" Type="DateTime" Precision="3" />
+          <Property Name="POSADJENAKOLICINA" Type="Int32" />
+          <NavigationProperty Name="DNEVNIK_PARCELE" Relationship="KrompirDatabaseModel.FK_DNEVNIK_PARCELE_PARCELA" FromRole="PARCELA" ToRole="DNEVNIK_PARCELE" />
+          <NavigationProperty Name="PROIZVODJAC" Relationship="KrompirDatabaseModel.FK_PARCELA_PROIZVODJAC" FromRole="PARCELA" ToRole="PROIZVODJAC" />
+          <NavigationProperty Name="SIFRA_SORTE" Relationship="KrompirDatabaseModel.FK_PARCELA_SIFRA_SORTE" FromRole="PARCELA" ToRole="SIFRA_SORTE" />
+          <NavigationProperty Name="PRINOS_PARCELE" Relationship="KrompirDatabaseModel.FK_PRINOS_PARCELE_PARCELA" FromRole="PARCELA" ToRole="PRINOS_PARCELE" />
+          <Property Name="DELETED" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DNEVNIK_PARCELE_PARCELA">
+          <End Type="KrompirDatabaseModel.PARCELA" Role="PARCELA" Multiplicity="0..1" />
+          <End Type="KrompirDatabaseModel.DNEVNIK_PARCELE" Role="DNEVNIK_PARCELE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARCELA">
+              <PropertyRef Name="PARCELAID" />
+            </Principal>
+            <Dependent Role="DNEVNIK_PARCELE">
+              <PropertyRef Name="PARCELAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARCELA_PROIZVODJAC">
+          <End Type="KrompirDatabaseModel.PROIZVODJAC" Role="PROIZVODJAC" Multiplicity="0..1" />
+          <End Type="KrompirDatabaseModel.PARCELA" Role="PARCELA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROIZVODJAC">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Principal>
+            <Dependent Role="PARCELA">
+              <PropertyRef Name="PROIZVODJACID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PARCELA_SIFRA_SORTE">
+          <End Type="KrompirDatabaseModel.SIFRA_SORTE" Role="SIFRA_SORTE" Multiplicity="0..1" />
+          <End Type="KrompirDatabaseModel.PARCELA" Role="PARCELA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SIFRA_SORTE">
+              <PropertyRef Name="SORTAID" />
+            </Principal>
+            <Dependent Role="PARCELA">
+              <PropertyRef Name="SORTAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRINOS_PARCELE_PARCELA">
+          <End Type="KrompirDatabaseModel.PARCELA" Role="PARCELA" Multiplicity="0..1" />
+          <End Type="KrompirDatabaseModel.PRINOS_PARCELE" Role="PRINOS_PARCELE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PARCELA">
+              <PropertyRef Name="PARCELAID" />
+            </Principal>
+            <Dependent Role="PRINOS_PARCELE">
+              <PropertyRef Name="PARCELAID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KrompirDatabaseModelStoreContainer" CdmEntityContainer="KrompirDatabaseEntities">
+          <EntitySetMapping Name="DNEVNIK_PARCELE">
+            <EntityTypeMapping TypeName="KrompirDatabaseModel.DNEVNIK_PARCELE">
+              <MappingFragment StoreEntitySet="DNEVNIK_PARCELE">
+                <ScalarProperty Name="DELTED" ColumnName="DELTED" />
+                <ScalarProperty Name="DNEVNIKID" ColumnName="DNEVNIKID" />
+                <ScalarProperty Name="NAZIVRADNEOPERACIJE" ColumnName="NAZIVRADNEOPERACIJE" />
+                <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+                <ScalarProperty Name="KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE" ColumnName="KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE" />
+                <ScalarProperty Name="KORISCENIPRIKLJUCAK" ColumnName="KORISCENIPRIKLJUCAK" />
+                <ScalarProperty Name="NAZIVKORISCENOGPOTROSNOGMATERIJALA" ColumnName="NAZIVKORISCENOGPOTROSNOGMATERIJALA" />
+                <ScalarProperty Name="JEDINICAMJERE" ColumnName="JEDINICAMJERE" />
+                <ScalarProperty Name="KOLICINAUTROSENOGPOTROSNOGMATERIJALA" ColumnName="KOLICINAUTROSENOGPOTROSNOGMATERIJALA" />
+                <ScalarProperty Name="UTROSENOVRIJEMERADAMEHANIZACIJE" ColumnName="UTROSENOVRIJEMERADAMEHANIZACIJE" />
+                <ScalarProperty Name="UTROSENOVRIJEMERADARADNIKA" ColumnName="UTROSENOVRIJEMERADARADNIKA" />
+                <ScalarProperty Name="PARCELAID" ColumnName="PARCELAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ETIKETA">
+            <EntityTypeMapping TypeName="KrompirDatabaseModel.ETIKETA">
+              <MappingFragment StoreEntitySet="ETIKETA">
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="ETIKETAID" ColumnName="ETIKETAID" />
+                <ScalarProperty Name="PROIZVODJACID" ColumnName="PROIZVODJACID" />
+                <ScalarProperty Name="SORTAID" ColumnName="SORTAID" />
+                <ScalarProperty Name="SIFRAPAKOVANJA" ColumnName="SIFRAPAKOVANJA" />
+                <ScalarProperty Name="REDNIBROJZAHTJEVAPROIZVODJACA" ColumnName="REDNIBROJZAHTJEVAPROIZVODJACA" />
+                <ScalarProperty Name="ZASTITA" ColumnName="ZASTITA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KOLICINA_PROIZVEDENOG_KROMPIRA">
+            <EntityTypeMapping TypeName="KrompirDatabaseModel.KOLICINA_PROIZVEDENOG_KROMPIRA">
+              <MappingFragment StoreEntitySet="KOLICINA_PROIZVEDENOG_KROMPIRA">
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="KOLICINAPROIZVEDENOGKROMPIRAID" ColumnName="KOLICINAPROIZVEDENOGKROMPIRAID" />
+                <ScalarProperty Name="PROIZVODJACID" ColumnName="PROIZVODJACID" />
+                <ScalarProperty Name="UKUPNAPROIZVEDENAKOLICINA" ColumnName="UKUPNAPROIZVEDENAKOLICINA" />
+                <ScalarProperty Name="SORTAID" ColumnName="SORTAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRINOS_PARCELE">
+            <EntityTypeMapping TypeName="KrompirDatabaseModel.PRINOS_PARCELE">
+              <MappingFragment StoreEntitySet="PRINOS_PARCELE">
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="PRINOSID" ColumnName="PRINOSID" />
+                <ScalarProperty Name="PROIZVEDENAKOLICINA" ColumnName="PROIZVEDENAKOLICINA" />
+                <ScalarProperty Name="PARCELAID" ColumnName="PARCELAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROIZVODJAC">
+            <EntityTypeMapping TypeName="KrompirDatabaseModel.PROIZVODJAC">
+              <MappingFragment StoreEntitySet="PROIZVODJAC">
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="PROIZVODJACID" ColumnName="PROIZVODJACID" />
+                <ScalarProperty Name="IME" ColumnName="IME" />
+                <ScalarProperty Name="PREZIME" ColumnName="PREZIME" />
+                <ScalarProperty Name="DATUMRODJENJA" ColumnName="DATUMRODJENJA" />
+                <ScalarProperty Name="MJESTOSTANOVANJA" ColumnName="MJESTOSTANOVANJA" />
+                <ScalarProperty Name="ADRESA" ColumnName="ADRESA" />
+                <ScalarProperty Name="APIF" ColumnName="APIF" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SIFRA_SORTE">
+            <EntityTypeMapping TypeName="KrompirDatabaseModel.SIFRA_SORTE">
+              <MappingFragment StoreEntitySet="SIFRA_SORTE">
+                <ScalarProperty Name="SORTAID" ColumnName="SORTAID" />
+                <ScalarProperty Name="NAZIV" ColumnName="NAZIV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNOS_U_DNEVNIK">
+            <EntityTypeMapping TypeName="KrompirDatabaseModel.UNOS_U_DNEVNIK">
+              <MappingFragment StoreEntitySet="UNOS_U_DNEVNIK">
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="UNOSUDNEVNIKID" ColumnName="UNOSUDNEVNIKID" />
+                <ScalarProperty Name="NAZIVRADNEOPERACIJE" ColumnName="NAZIVRADNEOPERACIJE" />
+                <ScalarProperty Name="DATUM" ColumnName="DATUM" />
+                <ScalarProperty Name="KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE" ColumnName="KORISCENOPOGONSKOSREDSTVOMEHANIZACIJE" />
+                <ScalarProperty Name="KORISCENIPRIKLJUCAK" ColumnName="KORISCENIPRIKLJUCAK" />
+                <ScalarProperty Name="NAZIVKORISCENOGPOTROSNOGMATERIJALA" ColumnName="NAZIVKORISCENOGPOTROSNOGMATERIJALA" />
+                <ScalarProperty Name="JEDINICAMJERE" ColumnName="JEDINICAMJERE" />
+                <ScalarProperty Name="KOLICINAUTROSENOGPOTROSNOGMATERIJALA" ColumnName="KOLICINAUTROSENOGPOTROSNOGMATERIJALA" />
+                <ScalarProperty Name="UTROSENOVRIJEMERADAMEHANIZACIJE" ColumnName="UTROSENOVRIJEMERADAMEHANIZACIJE" />
+                <ScalarProperty Name="UTROSENOVRIJEMERADARADNIKA" ColumnName="UTROSENOVRIJEMERADARADNIKA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PARCELA">
+            <EntityTypeMapping TypeName="KrompirDatabaseModel.PARCELA">
+              <MappingFragment StoreEntitySet="PARCELA">
+                <ScalarProperty Name="DELETED" ColumnName="DELETED" />
+                <ScalarProperty Name="POSADJENAKOLICINA" ColumnName="POSADJENAKOLICINA" />
+                <ScalarProperty Name="DATUMSADNJE" ColumnName="DATUMSADNJE" />
+                <ScalarProperty Name="POSADJENAKATEGORIJASADNOGMATERIJALA" ColumnName="POSADJENAKATEGORIJASADNOGMATERIJALA" />
+                <ScalarProperty Name="SORTAID" ColumnName="SORTAID" />
+                <ScalarProperty Name="PREDUSJEV" ColumnName="PREDUSJEV" />
+                <ScalarProperty Name="POVRSINA" ColumnName="POVRSINA" />
+                <ScalarProperty Name="KCBROJ" ColumnName="KCBROJ" />
+                <ScalarProperty Name="KATASTARSKAOPSTINA" ColumnName="KATASTARSKAOPSTINA" />
+                <ScalarProperty Name="MJESTO" ColumnName="MJESTO" />
+                <ScalarProperty Name="PROIZVODJACID" ColumnName="PROIZVODJACID" />
+                <ScalarProperty Name="PARCELAID" ColumnName="PARCELAID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

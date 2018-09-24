@@ -1,0 +1,42 @@
+﻿@model KrompirApp.KOLICINA_PROIZVEDENOG_KROMPIRA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KOLICINA_PROIZVEDENOG_KROMPIRA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UKUPNAPROIZVEDENAKOLICINA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UKUPNAPROIZVEDENAKOLICINA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROIZVODJAC.IME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROIZVODJAC.IME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SIFRA_SORTE.NAZIV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SIFRA_SORTE.NAZIV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KOLICINAPROIZVEDENOGKROMPIRAID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

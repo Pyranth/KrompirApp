@@ -1,0 +1,82 @@
+﻿@model KrompirApp.PROIZVODJAC
+
+@{
+    ViewBag.Title = "Detalji";
+}
+
+<h2>Detalji</h2>
+
+<div>
+    <h4>PROIZVODJAC</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PREZIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PREZIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATUMRODJENJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATUMRODJENJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MJESTOSTANOVANJA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MJESTOSTANOVANJA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADRESA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADRESA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.APIF)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.APIF)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFON)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Izmjeni", "Edit", new { id = Model.PROIZVODJACID }) |
+    @Html.ActionLink("Nazad", "Index")
+</p>

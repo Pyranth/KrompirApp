@@ -1,0 +1,59 @@
+﻿@model IEnumerable<KrompirApp.PROIZVODJAC>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Registruj novog proizvodjaca", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PREZIME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.APIF)
+        </th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PREZIME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APIF)
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create", "Parcela", new { id = item.PROIZVODJACID })'">Dodaj novu parcelu</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Parcela", new { id = item.PROIZVODJACID })'">Pregled parcela</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Index", "Proizvedeno", new { id = item.PROIZVODJACID })'">Pregled proizvodnje</button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" onclick="location.href='@Url.Action("Create", "Etiketa", new { id = item.PROIZVODJACID })'">Izdaj etiketu</button>
+        </td>
+        <td>
+            @Html.ActionLink("Izmjeni", "Edit", new { id = item.PROIZVODJACID }) |
+            @Html.ActionLink("Detalji", "Details", new { id = item.PROIZVODJACID }) |
+            @Html.ActionLink("Obriši", "Delete", new { id = item.PROIZVODJACID })
+        </td>
+    </tr>
+}
+
+</table>

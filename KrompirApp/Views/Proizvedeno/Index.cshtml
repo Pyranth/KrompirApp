@@ -1,0 +1,38 @@
+﻿@model IEnumerable<KrompirApp.KOLICINA_PROIZVEDENOG_KROMPIRA>
+
+@{
+    ViewBag.Title = "Pregled";
+}
+
+<h2>Pregled</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UKUPNAPROIZVEDENAKOLICINA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROIZVODJAC.IME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SIFRA_SORTE.NAZIV)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UKUPNAPROIZVEDENAKOLICINA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROIZVODJAC.IME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SIFRA_SORTE.NAZIV)
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.ActionLink("Nazad", "Index", "Proizvodjac", null, null)
